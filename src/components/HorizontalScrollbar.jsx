@@ -12,7 +12,6 @@ const HorizontalScrollbar = ({ data, bodyPart, setbodyPart }) => {
           itemId={item.id || item}
           title={item.id || item}
           m="0 40px"
-          sx={{ display: "flex", flexDirection: "row" }}
         >
           <BodyPart item={item} bodyPart={bodyPart} setbodyPart={setbodyPart} />
         </Box>
