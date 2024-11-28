@@ -22,23 +22,23 @@ const SearchExercises = ({ setExercises, bodyPart, setbodyPart }) => {
 
   const handleSearch = async () => {
     if (search) {
-      const exercisesData = await fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises",
-        exercisesOptions
+      const exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises`, exercisesOptions);
+      console.log(exercisesData)
+
+      const searchedExercises = exercisesData.filter(
+        (item) => item.name.toLowerCase().includes(search)
+               || item.target.toLowerCase().includes(search)
+               || item.equipment.toLowerCase().includes(search)
+               || item.bodyPart.toLowerCase().includes(search),
       );
 
-      const searchedExercies = exercisesData.filter(
-        (exercise) =>
-          exercise.name.toLowerCase().includes(search) ||
-          exercise.target.toLowerCase().includes(search) ||
-          exercise.equipment.toLowerCase().includes(search) ||
-          exercise.bodyPart.toLowerCase().includes(search)
-      );
+      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
 
-      setSearch("");
-      setExercises(searchedExercies);
+      setSearch('');
+      setExercises(searchedExercises);
     }
   };
+
 
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
@@ -76,6 +76,7 @@ const SearchExercises = ({ setExercises, bodyPart, setbodyPart }) => {
             height: "56px",
             position: "absolute",
             right: "0",
+            fontWeight: "bold"
           }}
           onClick={handleSearch}
         >

@@ -24,7 +24,7 @@ const HeroBanner = () => {
       <Typography fontSize='22px' lineHeight='35px' mb={4}>
         Check out the most effective exercises
       </Typography>
-      <Button variant='contained' href='#exercises' sx={{ backgroundColor: '#FF2625', color: '#FFFFFF', '&:hover': { backgroundColor: '#FF3300' } }}> 
+      <Button variant='contained' href='#exercises' sx={{ backgroundColor: '#FF2625', color: '#FFFFFF', '&:hover': { backgroundColor: '#FF3300' }, padding: "15px 20px", fontWeight: 'bold' }}> 
           Explore Exercises
       </Button>
       <Typography fontWeight={600} color='#ff2625'
