@@ -1,9 +1,10 @@
 import React from "react";
 import { Box } from "@mui/material";
 import BodyPart from "./BodyPart";
+import ExerciseCard from "./ExerciseCard";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 
-const HorizontalScrollbar = ({ data, bodyPart, setbodyPart }) => {
+const HorizontalScrollbar = ({ data, bodyPart, setbodyPart, isBodyPart }) => {
   return (
     <div style={{ display: "flex", flexDirection: "row", overflow: "scroll" }}>
       {data.map((item) => (
@@ -13,7 +14,15 @@ const HorizontalScrollbar = ({ data, bodyPart, setbodyPart }) => {
           title={item.id || item}
           m="0 40px"
         >
-          <BodyPart item={item} bodyPart={bodyPart} setbodyPart={setbodyPart} />
+          {isBodyPart ? (
+            <BodyPart
+              item={item}
+              bodyPart={bodyPart}
+              setbodyPart={setbodyPart}
+            />
+          ) : (
+            <ExerciseCard exercise={item} />
+          )}
         </Box>
       ))}
     </div>
